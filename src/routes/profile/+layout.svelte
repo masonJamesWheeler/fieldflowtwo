@@ -1,16 +1,16 @@
 <script>
     /** @type {import('./$types').LayoutData} */
     export let data;
-  </script>
-  
-  <nav>
+</script>
+
+<nav>
     {#if data.user}
-      <a href="/profile">Profile</a>
-      <form method="POST" action="/auth?/logout">
-        <button type="submit">Log out</button>
-      </form>
+        <a href="/src/routes/profiletes/profile">Profile</a>
+        <form method="POST" action="/auth?/logout">
+            <button type="submit">Log out</button>
+        </form>
     {/if}
-  </nav>
-  
-  <slot />
+</nav>
+
+<slot/>
   
