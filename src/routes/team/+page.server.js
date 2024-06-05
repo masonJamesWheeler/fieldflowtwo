@@ -1,5 +1,5 @@
 import { fail, redirect } from '@sveltejs/kit';
-import * as db from '$lib/server/database.js';
+import * as db from '$lib/server/db.js';
 
 /** @type {import('./$types').Actions} */
 export const actions = {
@@ -24,7 +24,7 @@ export const actions = {
             coachId: locals.user.id,
         });
 
-        throw redirect(302, `/teams/${team.team_id}`);
+        throw redirect(302, `/team/${team.team_id}`);
     },
     acceptInvite: async ({ request, locals }) => {
         const data = await request.formData();

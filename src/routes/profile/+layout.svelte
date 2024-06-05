@@ -5,7 +5,7 @@
 
 <nav>
     {#if data.user}
-        <a href="/src/routes/profiletes/profile">Profile</a>
+        <a href="/">Home</a>
         <form method="POST" action="/auth?/logout">
             <button type="submit">Log out</button>
         </form>

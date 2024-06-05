@@ -9,6 +9,7 @@
 <a href="auth">sign up or login</a>
 <a href="profile">profile</a>
 <a href="team">team</a>
+<a href="messages">messages</a>
 
 {#if data.notifications.length > 0}
     <h2>Notifications</h2>

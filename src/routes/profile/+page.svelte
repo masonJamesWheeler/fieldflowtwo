@@ -1,15 +1,14 @@
 <script>
-    import {page} from '$app/stores';
-</script>
+    /** @type {import('./$types').PageData} */
+    export let data;</script>
 
 <h1>Profile</h1>
 
-{#if $page.data.user}
-    <p><strong>Full Name:</strong> {$page.data.user.fullname}</p>
-    <p><strong>Email:</strong> {$page.data.user.email}</p>
-    <p><strong>Role:</strong> {$page.data.user.role}</p>
-    {#if $page.data.user.team}
-        <p><strong>Team:</strong> {$page.data.user.team.team_name}</p>
+{#if data.user}
+    <p><strong>Full Name:</strong> {data.user.fullname}</p>
+    <p><strong>Email:</strong> {data.user.email}</p>
+    <p><strong>Role:</strong> {data.user.role}</p>
+    {#if data.user.team}
+        <p><strong>Team:</strong> {data.user.team.team_name}</p>
     {/if}
-    <a href="/src/routes/profile/edit">Edit Profile</a>
 {/if}

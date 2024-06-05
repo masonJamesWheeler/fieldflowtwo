@@ -24,11 +24,12 @@
     }
 </script>
 
-<h1>Teams</h1>
+<h1>Team</h1>
 
 {#if data.team}
     <h2>Team: {data.team.team_name}</h2>
     <a href="/team/roster">Roster</a>
+    <a href="/team/calendar">Calendar</a>
     {#if data.user.role === 'coach'}
         <a href="/team/invite">Invite</a>
     {/if}

@@ -1,5 +1,5 @@
 // src/routes/auth/+layout.server.js
-import * as db from '$lib/server/database';
+import * as db from '$lib/server/db.js';
 import {redirect} from '@sveltejs/kit';
 
 /** @type {import('./$types').LayoutServerLoad} */

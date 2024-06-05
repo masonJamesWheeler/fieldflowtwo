@@ -1,13 +1,12 @@
 // src/routes/team/invite/+page.server.js
 import {fail, redirect} from '@sveltejs/kit';
-import * as db from '$lib/server/database.js';
+import * as db from '$lib/server/db.js';
 
 /** @type {import('./$types').Actions} */
 export const actions = {
     inviteUser: async ({request, locals}) => {
         const data = await request.formData();
         const email = data.get('email');
-        console.log(locals)
         const teamId = locals.user.team.team_id;
 
         if (!email) {

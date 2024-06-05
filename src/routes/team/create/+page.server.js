@@ -1,6 +1,6 @@
 // src/routes/team/create/+page.server.js
 import {fail, redirect} from '@sveltejs/kit';
-import * as db from '$lib/server/database.js';
+import * as db from '$lib/server/db.js';
 
 /** @type {import('./$types').Actions} */
 export const actions = {
@@ -30,7 +30,6 @@ export const actions = {
 
         // Update user's team_id
         await db.updateUserTeam(locals.user.id, team.team_id);
-        console.log("redirecting in create")
-        throw redirect(302, `/teams/${team.team_id}`);
+        redirect(302, `/team`);
     },
 };

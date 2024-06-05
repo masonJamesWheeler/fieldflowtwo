@@ -1,11 +1,11 @@
-// src/routes/auth/+page.server.js
-import {fail, redirect} from '@sveltejs/kit';
-import bcrypt from 'bcrypt';
-import * as db from '$lib/server/database';
+// src/routes/auth/+page.server.ts
+import { fail, redirect } from '@sveltejs/kit';
 
-/** @type {import('./$types').Actions} */
+import bcrypt from 'bcrypt';
+import * as db from '$lib/server/db.js';
+
 export const actions = {
-    login: async ({cookies, request}) => {
+    login: async ({ cookies, request }) => {
         const data = await request.formData();
         const email = data.get('email');
         const password = data.get('password');
@@ -13,13 +13,13 @@ export const actions = {
         const user = await db.getUserByEmail(email);
 
         if (!user) {
-            return fail(400, {email, incorrect: true});
+            return fail(400, { incorrect: true });
         }
 
         const passwordMatch = await bcrypt.compare(password, user.password_hash);
 
         if (!passwordMatch) {
-            return fail(400, {email, incorrect: true});
+            return fail(400, { incorrect: true });
         }
 
         const authenticatedUser = await db.createSession(user);
@@ -34,7 +34,7 @@ export const actions = {
         throw redirect(302, '/');
     },
 
-    signup: async ({request}) => {
+    signup: async ({ request }) => {
         const data = await request.formData();
         const fullname = data.get('fullname');
         const email = data.get('email');
@@ -42,9 +42,8 @@ export const actions = {
         const role = data.get('role');
 
         const existingUser = await db.getUserByEmail(email);
-
         if (existingUser) {
-            return fail(400, {email, userExists: true});
+            return fail(400, { userExists: true });
         }
 
         const hashedPassword = await bcrypt.hash(password, 10);
@@ -55,7 +54,12 @@ export const actions = {
             role,
         });
 
-        throw redirect(302, '/auth/');
+        if (user) {
+            throw redirect(302, '/auth');
+        } else {
+            console.log('An error occurred during sign up');
+            return fail(400, { error: 'An error occurred during sign up' });
+        }
     },
 
     logout: async ({cookies}) => {

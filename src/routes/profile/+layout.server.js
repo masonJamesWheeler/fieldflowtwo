@@ -1,4 +1,4 @@
-import * as db from '$lib/server/database.js';
+import * as db from '$lib/server/db.js';
 import {redirect} from '@sveltejs/kit';
 
 /** @type {import('./$types').LayoutServerLoad} */
@@ -16,16 +16,10 @@ export async function load({cookies, locals}) {
         throw redirect(302, '/auth');
     }
 
-    locals.user = {
-        id: user.user_id,
-        fullname: user.fullname,
-        email: user.email,
-        username: user.username,
-        role: user.role,
-        team: user.team_id ? await db.getTeamById(user.team_id) : null,
-    };
-
     return {
         user: locals.user,
+        team: locals.user.team,
+        invitations: locals.user.invitations,
     };
+
 }
