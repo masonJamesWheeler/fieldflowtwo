@@ -20,3 +20,4 @@ const pool = new Pool({
     database: "fieldflow",
 });
 
+export default pool;

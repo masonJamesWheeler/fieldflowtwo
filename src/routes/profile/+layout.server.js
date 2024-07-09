@@ -1,4 +1,4 @@
-import * as db from '$lib/server/db.js';
+import * as db from '$lib/server/index.js';
 import {redirect} from '@sveltejs/kit';
 
 /** @type {import('./$types').LayoutServerLoad} */

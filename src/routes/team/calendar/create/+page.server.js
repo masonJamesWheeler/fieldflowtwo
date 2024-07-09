@@ -1,6 +1,6 @@
 // src/routes/team/calendar/create/+page.server.js
 import { fail } from '@sveltejs/kit';
-import * as db from '$lib/server/db.js';
+import * as db from '$lib/server/index.js';
 
 /** @type {import('./$types').Actions} */
 export const actions = {

@@ -1,5 +1,5 @@
 // src/routes/team/calendar/create/+layout.server.js
-import * as db from '$lib/server/db.js';
+import * as db from '$lib/server/index.js';
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ locals }) {

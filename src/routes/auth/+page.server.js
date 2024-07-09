@@ -2,7 +2,8 @@
 import { fail, redirect } from '@sveltejs/kit';
 
 import bcrypt from 'bcrypt';
-import * as db from '$lib/server/db.js';
+import * as db from '$lib/server/index.js';
+import {getUserByEmail} from "$lib/server/index.js";
 
 export const actions = {
     login: async ({ cookies, request }) => {
@@ -10,7 +11,7 @@ export const actions = {
         const email = data.get('email');
         const password = data.get('password');
 
-        const user = await db.getUserByEmail(email);
+        const user = await getUserByEmail(email);
 
         if (!user) {
             return fail(400, { incorrect: true });

@@ -1,6 +1,6 @@
 // src/routes/team/calendar/+page.server.js
 import { redirect } from '@sveltejs/kit';
-import * as db from '$lib/server/db.js';
+import * as db from '$lib/server/index.js';
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ locals }) {
