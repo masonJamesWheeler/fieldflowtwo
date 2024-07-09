@@ -1,5 +1,5 @@
 // src/hooks.server.js
-import * as db from '$lib/server/db.js';
+import * as db from '$lib/server/index.js';
 
 /** @type {import('@sveltejs/kit').Handle} */
 export async function handle({event, resolve}) {

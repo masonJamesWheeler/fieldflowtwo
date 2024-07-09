@@ -2,6 +2,7 @@
 <script>
     /** @type {import('./$types').PageData} */
     export let data;
+    console.log(data);
 
     async function acceptInvite(inviteId) {
         const formData = new FormData();
