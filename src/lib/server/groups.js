@@ -74,3 +74,36 @@ export async function getUsersByGroupId(groupId) {
     const { rows } = await pool.query(query, [groupId]);
     return rows;
 }
+
+export async function createChatGroup(groupName, teamId, memberIds) {
+    const query = `
+        INSERT INTO groups (group_name, group_type_id, team_id)
+        VALUES ($1, (SELECT group_type_id FROM group_types WHERE group_type_name = 'chat'), $2)
+        RETURNING *;
+    `;
+    const { rows } = await pool.query(query, [groupName, teamId]);
+    const group = rows[0];
+
+    const memberInsertQuery = `
+        INSERT INTO group_members (group_id, user_id)
+        VALUES ($1, $2)
+    `;
+
+    for (const memberId of memberIds) {
+        await pool.query(memberInsertQuery, [group.group_id, memberId]);
+    }
+
+    return group;
+}
+
+export async function getChatGroupsByUserId(userId) {
+    const query = `
+        SELECT g.*
+        FROM groups g
+        JOIN group_members gm ON g.group_id = gm.group_id
+        JOIN group_types gt ON g.group_type_id = gt.group_type_id
+        WHERE gm.user_id = $1 AND gt.group_type_name = 'chat';
+    `;
+    const { rows } = await pool.query(query, [userId]);
+    return rows;
+}

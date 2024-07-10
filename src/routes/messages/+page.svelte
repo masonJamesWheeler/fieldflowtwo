@@ -29,7 +29,7 @@
     <ul>
         {#each data.chats as chat}
             <li>
-                <a href={`/messages/${chat.chat_id}`}>{chat.chat_name || 'One-on-One Chat'}</a>
+                <a href={`/messages/${chat.group_id}`}>{chat.group_name || 'Chat'}</a>
             </li>
         {/each}
     </ul>

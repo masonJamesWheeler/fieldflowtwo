@@ -1,7 +1,6 @@
 import { fail, redirect } from '@sveltejs/kit';
 import * as db from '$lib/server/index.js';
 
-/** @type {import('./$types').Actions} */
 export const actions = {
     createChat: async ({ request, locals }) => {
         const data = await request.formData();
@@ -15,10 +14,10 @@ export const actions = {
         // Add the current user's ID to the member IDs
         memberIds.push(locals.user.id);
 
-        const result = await db.createChat(chatName, memberIds);
-        if (result.success) {
-            throw redirect(302, `/messages/${result.chat.chat_id}`);
-        } else {
+        try {
+            const chat = await db.createChatGroup(chatName, locals.user.team.team_id, memberIds);
+            throw redirect(302, `/messages/${chat.group_id}`);
+        } catch (error) {
             return fail(400, { error: 'Failed to create chat' });
         }
     }

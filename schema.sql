@@ -22,16 +22,23 @@ ADD COLUMN admin_id uuid REFERENCES users(user_id);
 
 -- Group Types Table
 CREATE TABLE group_types (
-    group_type_id uuid DEFAULT gen_random_uuid() PRIMARY KEY,
+    group_type_id SERIAL PRIMARY KEY,
     group_type_name character varying UNIQUE,
     created_at timestamp without time zone DEFAULT now()
 );
+
+-- Insert hard-coded group types
+INSERT INTO group_types (group_type_name) VALUES
+('chat'),
+('overarching'),
+('custom')
+ON CONFLICT (group_type_name) DO NOTHING;
 
 -- Groups Table
 CREATE TABLE groups (
     group_id uuid DEFAULT gen_random_uuid() PRIMARY KEY,
     group_name character varying,
-    group_type_id uuid REFERENCES group_types(group_type_id),
+    group_type_id integer REFERENCES group_types(group_type_id),
     team_id uuid REFERENCES teams(team_id),
     created_at timestamp without time zone DEFAULT now()
 );
