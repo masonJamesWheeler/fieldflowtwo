@@ -1,3 +1,4 @@
+// File: src/lib/server/index.js
 export * from './events.js';
 export * from './groups.js';
 export * from './messages.js';

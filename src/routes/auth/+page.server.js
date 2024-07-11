@@ -1,3 +1,4 @@
+// File: src/routes/auth/+page.server.js
 // src/routes/auth/+page.server.ts
 import { fail, redirect } from '@sveltejs/kit';
 

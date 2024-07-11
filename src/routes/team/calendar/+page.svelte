@@ -1,3 +1,4 @@
+<!-- File: src/routes/team/calendar/+page.svelte --->
 <!--/src/routes/team/calendar/+page.svelte-->
 <script>
     export let data;

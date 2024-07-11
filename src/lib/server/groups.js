@@ -1,3 +1,4 @@
+// File: src/lib/server/groups.js
 import pool from './db.js';
 
 export async function findExistingGroup(memberIds, groupTypeName, teamId) {

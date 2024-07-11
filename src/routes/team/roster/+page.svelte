@@ -1,3 +1,4 @@
+<!-- File: src/routes/team/roster/+page.svelte --->
 <script>
 export let data;
 </script>

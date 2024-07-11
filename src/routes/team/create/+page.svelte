@@ -1,3 +1,4 @@
+<!-- File: src/routes/team/create/+page.svelte --->
 <!-- src/routes/team/create/+page.svelte -->
 <script>
     import {page} from '$app/stores';

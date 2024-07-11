@@ -1,3 +1,4 @@
+// File: src/lib/server/teams.js
 import pool from './db.js';
 import { createNotification } from './notifications.js';
 import { getUserById } from './users.js';

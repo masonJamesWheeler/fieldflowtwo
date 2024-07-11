@@ -1,3 +1,4 @@
+// File: src/routes/team/invite/+layout.server.js
 // src/routes/team/invite/+layout.server.js
 import {error, redirect} from '@sveltejs/kit';
 

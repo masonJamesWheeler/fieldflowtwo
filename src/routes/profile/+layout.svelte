@@ -1,3 +1,4 @@
+<!-- File: src/routes/profile/+layout.svelte --->
 <script>
     /** @type {import('./$types').LayoutData} */
     export let data;

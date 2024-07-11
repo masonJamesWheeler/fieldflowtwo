@@ -1,3 +1,4 @@
+// File: src/routes/team/+layout.server.js
 // src/routes/team/+layout.server.js
 import {redirect} from '@sveltejs/kit';
 import {page} from "$app/stores";

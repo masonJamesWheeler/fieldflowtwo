@@ -1,3 +1,4 @@
+// File: src/routes/profile/+layout.server.js
 import * as db from '$lib/server/index.js';
 import {redirect} from '@sveltejs/kit';
 

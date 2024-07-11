@@ -1,3 +1,4 @@
+<!-- File: src/routes/team/invite/+page.svelte --->
 <script>
     import { page } from '$app/stores';
     import { onMount } from 'svelte';

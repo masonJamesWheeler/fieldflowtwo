@@ -1,3 +1,4 @@
+<!-- File: static/+page.svelte --->
 <script>
     import { onMount, onDestroy } from 'svelte';
     import { page } from '$app/stores';

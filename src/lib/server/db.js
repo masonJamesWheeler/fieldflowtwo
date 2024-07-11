@@ -1,3 +1,4 @@
+// File: src/lib/server/db.js
 // src/lib/server/db.js
 import pkg from 'pg';
 // get env variables

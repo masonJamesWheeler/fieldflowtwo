@@ -1,3 +1,4 @@
+// File: src/routes/messages/[groupId]/+page.server.js
 import { json } from '@sveltejs/kit';
 import * as db from '$lib/server/index.js';
 

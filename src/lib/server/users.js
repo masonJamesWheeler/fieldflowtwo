@@ -1,3 +1,4 @@
+// File: src/lib/server/users.js
 import pool from './db.js';
 import { validateFullname, validateEmailFormat, checkEmailExists, validateRole } from './utils.js';
 

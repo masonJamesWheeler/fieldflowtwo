@@ -1,3 +1,4 @@
+<!-- File: src/routes/auth/+page.svelte --->
 <!-- src/routes/auth/+page.svelte -->
 <script>
     import { enhance } from '$app/forms';

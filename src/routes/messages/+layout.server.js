@@ -1,3 +1,4 @@
+// File: src/routes/messages/+layout.server.js
 // src/routes/team/message/+layout.server.js
 import { redirect } from '@sveltejs/kit';
 import * as db from '$lib/server/index.js';

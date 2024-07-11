@@ -1,3 +1,4 @@
+// File: src/routes/team/+page.server.js
 import { fail, redirect } from '@sveltejs/kit';
 import * as db from '$lib/server/index.js';
 

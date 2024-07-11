@@ -1,3 +1,4 @@
+// File: src/routes/team/calendar/create/+layout.server.js
 // src/routes/team/calendar/create/+layout.server.js
 import * as db from '$lib/server/index.js';
 

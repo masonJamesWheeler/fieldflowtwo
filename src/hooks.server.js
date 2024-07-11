@@ -1,3 +1,4 @@
+// File: src/hooks.server.js
 // src/hooks.server.js
 import * as db from '$lib/server/index.js';
 

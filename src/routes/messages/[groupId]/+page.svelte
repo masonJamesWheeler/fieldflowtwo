@@ -1,3 +1,4 @@
+<!-- File: src/routes/messages/[groupId]/+page.svelte --->
 <script>
     import { enhance } from '$app/forms';
     import { page } from '$app/stores';

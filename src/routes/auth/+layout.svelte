@@ -1,3 +1,4 @@
+<!-- File: src/routes/auth/+layout.svelte --->
 <!-- src/routes/auth/+layout.svelte -->
 <script>
     /** @type {import('./$types').LayoutData} */

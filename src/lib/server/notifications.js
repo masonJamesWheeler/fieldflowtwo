@@ -1,3 +1,4 @@
+// File: src/lib/server/notifications.js
 import pool from './db.js';
 
 async function getAllowedNotificationTypes() {

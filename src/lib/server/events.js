@@ -1,3 +1,4 @@
+// File: src/lib/server/events.js
 import pool from './db.js';
 
 export async function createEventForGroup(event, groupId, recurrence = null) {

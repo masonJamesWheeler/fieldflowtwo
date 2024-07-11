@@ -1,3 +1,4 @@
+// File: src/routes/+layout.server.js
 // src/routes/+layout.server.js
 import {redirect} from '@sveltejs/kit';
 

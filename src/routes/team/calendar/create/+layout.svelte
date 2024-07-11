@@ -1,3 +1,4 @@
+<!-- File: src/routes/team/calendar/create/+layout.svelte --->
 <!-- src/routes/team/calendar/create/+layout.svelte -->
 <script>
     /** @type {import('./$types').LayoutData} */

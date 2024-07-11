@@ -1,8 +1,8 @@
+<!-- File: src/routes/team/+page.svelte --->
 <!-- src/routes/team/+page.svelte -->
 <script>
     /** @type {import('./$types').PageData} */
     export let data;
-    console.log(data);
 
     async function acceptInvite(inviteId) {
         const formData = new FormData();
@@ -11,7 +11,7 @@
             method: 'POST',
             body: formData,
         });
-        location.reload(); // Refresh the page to reflect changes
+        location.reload();
     }
 
     async function declineInvite(inviteId) {
@@ -21,7 +21,7 @@
             method: 'POST',
             body: formData,
         });
-        location.reload(); // Refresh the page to reflect changes
+        location.reload();
     }
 </script>
 

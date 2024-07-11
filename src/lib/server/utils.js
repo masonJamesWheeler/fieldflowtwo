@@ -1,3 +1,4 @@
+// File: src/lib/server/utils.js
 import pool from './db.js';
 
 export function validateFullname(fullname) {
