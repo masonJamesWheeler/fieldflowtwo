@@ -44,7 +44,7 @@
             {#each data.invitations as invitation}
                 <li>
                     Team: {invitation.team_name} <br>
-                    Coach: {invitation.coach_name} <br>
+                    Coach: {invitation.admin_name} <br>
                     Status: {invitation.status} <br>
                     Sent: {new Date(invitation.created_at).toLocaleString()}
                     {#if invitation.status === 'pending'}

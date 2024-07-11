@@ -123,7 +123,7 @@ export async function getTeamInvitesByUserId(userId) {
                t.team_name, u.fullname AS admin_name
         FROM team_invites ti
         JOIN teams t ON ti.team_id = t.team_id
-        JOIN users u ON ti.user_id = u.user_id
+        JOIN users u ON ti.coach_id = u.user_id
         WHERE ti.user_id = $1
     `;
     const { rows } = await pool.query(query, [userId]);

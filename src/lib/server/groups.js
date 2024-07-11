@@ -107,3 +107,13 @@ export async function getChatGroupsByUserId(userId) {
     const { rows } = await pool.query(query, [userId]);
     return rows;
 }
+
+export async function getGroupById(groupId) {
+    const query = `
+        SELECT g.*
+        FROM groups g
+        WHERE g.group_id = $1;
+    `;
+    const { rows } = await pool.query(query, [groupId]);
+    return rows[0];
+}

@@ -14,7 +14,8 @@ export async function sendMessage(senderId, groupId, messageText) {
 
 export async function getMessagesByGroupId(groupId, limit = 50) {
     const query = `
-        SELECT m.*, u.fullname as sender_name
+        SELECT m.message_id, m.sender_id, m.group_id, m.message_text, m.sent_at,
+               u.fullname as sender_name
         FROM messages m
         JOIN users u ON m.sender_id = u.user_id
         WHERE m.group_id = $1
@@ -22,5 +23,6 @@ export async function getMessagesByGroupId(groupId, limit = 50) {
         LIMIT $2;
     `;
     const { rows } = await pool.query(query, [groupId, limit]);
-    return rows.reverse();
+    return rows;
 }
+

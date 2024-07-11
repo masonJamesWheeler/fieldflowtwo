@@ -1,44 +1,26 @@
 <script>
-    import { onMount, onDestroy } from 'svelte';
+    import { enhance } from '$app/forms';
     import { page } from '$app/stores';
 
     export let data;
+    console.log(data);
 
     let messages = [];
     let newMessage = '';
-    let intervalId;
-
-    onMount(() => {
-        loadMessages();
-        intervalId = setInterval(loadMessages, 5000);
-    });
-
-    onDestroy(() => {
-        clearInterval(intervalId);
-    });
 
     async function loadMessages() {
-        const response = await fetch(`/messages/${$page.params.groupId}/load`);
+        const response = await fetch(`?loadMessages`);
         messages = await response.json();
     }
 
-    async function sendMessage() {
-        if (newMessage.trim()) {
-            const response = await fetch(`/messages/${$page.params.groupId}/send`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ message: newMessage })
-            });
-
-            if (response.ok) {
-                newMessage = '';
-                await loadMessages();
-            }
+    $: {
+        if (data.messages) {
+            messages = data.messages;
         }
     }
 </script>
 
-<h1>{data.chat.group_name || 'Chat'}</h1>
+<h1>{data.chat && data.chat.group_name || 'Chat'}</h1>
 
 <div class="messages">
     {#each messages as message}
@@ -49,7 +31,14 @@
     {/each}
 </div>
 
-<form on:submit|preventDefault={sendMessage}>
-    <input type="text" bind:value={newMessage} placeholder="Type your message...">
+<form method="POST" action="?/sendMessage" use:enhance={() => {
+    return async ({ result }) => {
+        if (result.type === 'success') {
+            newMessage = '';
+            await loadMessages();
+        }
+    };
+}}>
+    <input type="text" name="message" bind:value={newMessage} placeholder="Type your message...">
     <button type="submit">Send</button>
 </form>

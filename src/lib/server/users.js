@@ -44,6 +44,13 @@ export async function createSession(user) {
     return rows[0];
 }
 
+export async function deleteSession(sessionId) {
+    const query = 'DELETE FROM sessions WHERE session_id = $1';
+    await pool.query
+    return;
+}
+
+
 export async function getUserBySession(sessionId) {
     const query = `
         SELECT users.*
