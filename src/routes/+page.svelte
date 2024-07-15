@@ -11,6 +11,7 @@
 <a href="profile">profile</a>
 <a href="team">team</a>
 <a href="messages">messages</a>
+<a href="drawplay">drawplay</a>
 
 {#if data.notifications.length > 0}
     <h2>Notifications</h2>
